@@ -247,6 +247,51 @@
 
 
 
+            <script>
+               const carouselItems = document.querySelectorAll('.carousel li');
+                const paginationItems = document.querySelectorAll('.pagination li');
+                const nextButtons = document.querySelectorAll('.next');
+                const title = document.querySelector('#item-title');
+
+                let activeItem = 0;
+
+                const updateItems = (announce = true) => {
+                    carouselItems.forEach((item, i) => {
+                    const isActive = activeItem % carouselItems.length === i;
+                    item.classList[isActive ? 'add' : 'remove']('active')
+                    item.setAttribute('aria-hidden', isActive ? false : true)
+                                    
+                    if(isActive) {
+                    if(announce) title.innerText = `Carousel updated to ${item.dataset.title} content`
+                    item.focus();
+                    }
+                })
+                    paginationItems.forEach((item, i) => item.classList[activeItem % paginationItems.length === i ? 'add' : 'remove']('active'))
+                    nextButtons.forEach((item, i) => item.setAttribute('tabindex', activeItem % paginationItems.length === i ? null : -1))
+                }
+
+                paginationItems.forEach((item, i) => {
+                    item.addEventListener('click', () => {
+                        activeItem = i;
+                    updateItems();
+                    })
+                })
+
+                nextButtons.forEach((item, i) => {
+                    item.addEventListener('click', () => {
+                    activeItem++;
+                        updateItems();
+                    })
+                })
+
+                updateItems(false);
+    </script>
+
+
+
+
+
+
 
 
 
@@ -304,14 +349,52 @@
 
 
 
+ <!-- D;FH;AKJDFH;ASKDHFALSKDJH -->
+
+  <!-- D;FH;AKJDFH;ASKDHFALSKDJH -->
+
+   <!-- D;FH;AKJDFH;ASKDHFALSKDJH -->
+
+    <!-- D;FH;AKJDFH;ASKDHFALSKDJH -->
+
+     <!-- D;FH;AKJDFH;ASKDHFALSKDJH -->
+
+      <!-- D;FH;AKJDFH;ASKDHFALSKDJH -->
+
+       <!-- D;FH;AKJDFH;ASKDHFALSKDJH -->
+
+        <!-- D;FH;AKJDFH;ASKDHFALSKDJH -->
+
+         <!-- D;FH;AKJDFH;ASKDHFALSKDJH -->
+
+          <!-- D;FH;AKJDFH;ASKDHFALSKDJH -->
+
+           <!-- D;FH;AKJDFH;ASKDHFALSKDJH -->
+
+
+            <!-- D;FH;AKJDFH;ASKDHFALSKDJH -->
+
+
+             <!-- D;FH;AKJDFH;ASKDHFALSKDJH -->
+
+
+              <!-- D;FH;AKJDFH;ASKDHFALSKDJH -->
+
+               <!-- D;FH;AKJDFH;ASKDHFALSKDJH -->
+
+                <!-- D;FH;AKJDFH;ASKDHFALSKDJH -->
+
+                 <!-- D;FH;AKJDFH;ASKDHFALSKDJH -->
+
+
+                  <!-- D;FH;AKJDFH;ASKDHFALSKDJH -->
 
 
 
+        <article class="w-100">
 
 
-
-
-                        <div class="icons">
+                        <div class="iconss">
                             <svg>
                                 <defs>
                                     <path id="icon-layer" d="M12.41 148.02l232.94 105.67c6.8 3.09 14.49 3.09 21.29 0l232.94-105.67c16.55-7.51 16.55-32.52 0-40.03L266.65 2.31a25.607 25.607 0 0 0-21.29 0L12.41 107.98c-16.55 7.51-16.55 32.53 0 40.04zm487.18 88.28l-58.09-26.33-161.64 73.27c-7.56 3.43-15.59 5.17-23.86 5.17s-16.29-1.74-23.86-5.17L70.51 209.97l-58.1 26.33c-16.55 7.5-16.55 32.5 0 40l232.94 105.59c6.8 3.08 14.49 3.08 21.29 0L499.59 276.3c16.55-7.5 16.55-32.5 0-40zm0 127.8l-57.87-26.23-161.86 73.37c-7.56 3.43-15.59 5.17-23.86 5.17s-16.29-1.74-23.86-5.17L70.29 337.87 12.41 364.1c-16.55 7.5-16.55 32.5 0 40l232.94 105.59c6.8 3.08 14.49 3.08 21.29 0L499.59 404.1c16.55-7.5 16.55-32.5 0-40z" />
@@ -323,9 +406,9 @@
                         </div>
                         
                         <div class="page">
-                            <h1><span>Grid Overlap</span> Carousel</h1>
+                            <h1 class="h11"><span>Grid Overlap</span> Carousel</h1>
                             <ul class="carousel" aria-live="polite">
-                            <h2 id="item-title" class="visually-hidden"></h2>
+                            <h2 id="item-title" class=" h22 visually-hidden"></h2>
                                 <li data-title="overlapped items">
                                     <p>All the carousel items are placed in the same cell so that they overlap each other.</p>	
                               <pre><code class="language-css">.carousel {
@@ -354,7 +437,7 @@
                                 </li>
                                 <li data-title="surprise">
                                     <p>Surprise Kitten!</p>
-                                    <img src='https://images.unsplash.com/photo-1602592818892-305611f06492?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NTI5ODM1MTc&ixlib=rb-1.2.1&q=80&w=400' alt=''>
+                                    <img class="imgg" src='https://images.unsplash.com/photo-1602592818892-305611f06492?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NTI5ODM1MTc&ixlib=rb-1.2.1&q=80&w=400' alt=''>
                               <button class="next">Restart</button>
                                 </li>
                             </ul>
@@ -370,7 +453,7 @@
 
 
 
-
+                    </article>
 
 
 
@@ -752,366 +835,315 @@
 
 
 
-
-
-
-
-            <section id="CA" class="tf-trendy-collections tf-section">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="sc-heading style-2">
-                                <div class="content-left">
-                                    <div class="group">
-                                       
-                                        <h3>Live Auctions</h3>
-                                    </div>
-                                </div>
-                            </div>
+<section id="CA" class="tf-trendy-collections tf-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="sc-heading style-2">
+                    <div class="content-left">
+                        <div class="group">
+                           
+                            <h3>Categories</h3>
                         </div>
-                        <div class="col-md-12">
-                            <div class="swiper-container trendy">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                        <div class="slider-item">
-                                            <div class="sc-product-item style-2">
-                                                <div class="product-img">
-                                                    <img src="assets/images/product-item/item-12.jpg" alt="Image">
-                                                    <a href="#" data-toggle="modal" data-target="#popup_bid"
-                                                        class="sc-button style letter"><span>Place Bid</span></a>
-                                                    <label>PANDA</label>
-                                                </div>
-                                                <div class="product-content">
-                                                    <h5 class="title"><a href="item-details.html">‘’3D Space Rocket With
-                                                            Smoke’’</a> </h5>
-                                                    <div class="product-author flex">
-                                                        <div class="avatar">
-                                                            <img src="assets/images/avatar/avt-7.jpg" alt="Image">
-                                                        </div>
-                                                        <div class="infor">
-                                                            <div class="author-name"><a href="author.html">Daniel M.
-                                                                    Bivens</a></div>
-                                                            <span>Creator</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-price flex">
-                                                        <div class="title">Current Bid</div>
-                                                        <div class="price">
-                                                            <span>5.23 ETH</span>
-                                                            <span>= $32.420</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div><!-- item-->
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="slider-item">
-                                            <div class="sc-product-item style-2">
-                                                <div class="product-img">
-                                                    <img src="assets/images/product-item/item-13.jpg" alt="Image">
-                                                    <a href="#" data-toggle="modal" data-target="#popup_bid"
-                                                        class="sc-button style letter"><span>Place Bid</span></a>
-                                                    <label>PANDA</label>
-                                                </div>
-                                                <div class="product-content">
-                                                    <h5 class="title"><a href="item-details.html">‘’3D Space Rocket With
-                                                            Smoke’’</a> </h5>
-                                                    <div class="product-author flex">
-                                                        <div class="avatar">
-                                                            <img src="assets/images/avatar/avt-7.jpg" alt="Image">
-                                                        </div>
-                                                        <div class="infor">
-                                                            <div class="author-name"><a href="author.html">Daniel M.
-                                                                    Bivens</a></div>
-                                                            <span>Creator</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-price flex">
-                                                        <div class="title">Current Bid</div>
-                                                        <div class="price">
-                                                            <span>5.23 ETH</span>
-                                                            <span>= $32.420</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div><!-- item-->
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="slider-item">
-                                            <div class="sc-product-item style-2">
-                                                <div class="product-img">
-                                                    <img src="assets/images/product-item/item-14.jpg" alt="Image">
-                                                    <a href="#" data-toggle="modal" data-target="#popup_bid"
-                                                        class="sc-button style letter"><span>Place Bid</span></a>
-                                                    <label>PANDA</label>
-                                                </div>
-                                                <div class="product-content">
-                                                    <h5 class="title"><a href="item-details.html">‘’3D Space Rocket With
-                                                            Smoke’’</a> </h5>
-                                                    <div class="product-author flex">
-                                                        <div class="avatar">
-                                                            <img src="assets/images/avatar/avt-7.jpg" alt="Image">
-                                                        </div>
-                                                        <div class="infor">
-                                                            <div class="author-name"><a href="author.html">Daniel M.
-                                                                    Bivens</a></div>
-                                                            <span>Creator</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-price flex">
-                                                        <div class="title">Current Bid</div>
-                                                        <div class="price">
-                                                            <span>5.23 ETH</span>
-                                                            <span>= $32.420</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div><!-- item-->
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="slider-item">
-                                            <div class="sc-product-item style-2">
-                                                <div class="product-img">
-                                                    <img src="assets/images/product-item/item-15.jpg" alt="Image">
-                                                    <a href="#" data-toggle="modal" data-target="#popup_bid"
-                                                        class="sc-button style letter"><span>Place Bid</span></a>
-                                                    <label>PANDA</label>
-                                                </div>
-                                                <div class="product-content">
-                                                    <h5 class="title"><a href="item-details.html">‘’3D Space Rocket With
-                                                            Smoke’’</a> </h5>
-                                                    <div class="product-author flex">
-                                                        <div class="avatar">
-                                                            <img src="assets/images/avatar/avt-7.jpg" alt="Image">
-                                                        </div>
-                                                        <div class="infor">
-                                                            <div class="author-name"><a href="author.html">Daniel M.
-                                                                    Bivens</a></div>
-                                                            <span>Creator</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-price flex">
-                                                        <div class="title">Current Bid</div>
-                                                        <div class="price">
-                                                            <span>5.23 ETH</span>
-                                                            <span>= $32.420</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div><!-- item-->
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="slider-item">
-                                            <div class="sc-product-item style-2">
-                                                <div class="product-img">
-                                                    <img src="assets/images/product-item/item-16.jpg" alt="Image">
-                                                    <a href="#" data-toggle="modal" data-target="#popup_bid"
-                                                        class="sc-button style letter"><span>Place Bid</span></a>
-                                                    <label>PANDA</label>
-                                                </div>
-                                                <div class="product-content">
-                                                    <h5 class="title"><a href="item-details.html">‘’3D Space Rocket With
-                                                            Smoke’’</a> </h5>
-                                                    <div class="product-author flex">
-                                                        <div class="avatar">
-                                                            <img src="assets/images/avatar/avt-7.jpg" alt="Image">
-                                                        </div>
-                                                        <div class="infor">
-                                                            <div class="author-name"><a href="author.html">Daniel M.
-                                                                    Bivens</a></div>
-                                                            <span>Creator</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-price flex">
-                                                        <div class="title">Current Bid</div>
-                                                        <div class="price">
-                                                            <span>5.23 ETH</span>
-                                                            <span>= $32.420</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div><!-- item-->
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="slider-item">
-                                            <div class="sc-product-item style-2">
-                                                <div class="product-img">
-                                                    <img src="assets/images/product-item/item-15.jpg" alt="Image">
-                                                    <a href="#" data-toggle="modal" data-target="#popup_bid"
-                                                        class="sc-button style letter"><span>Place Bid</span></a>
-                                                    <label>PANDA</label>
-                                                </div>
-                                                <div class="product-content">
-                                                    <h5 class="title"><a href="item-details.html">‘’3D Space Rocket With
-                                                            Smoke’’</a> </h5>
-                                                    <div class="product-author flex">
-                                                        <div class="avatar">
-                                                            <img src="assets/images/avatar/avt-7.jpg" alt="Image">
-                                                        </div>
-                                                        <div class="infor">
-                                                            <div class="author-name"><a href="author.html">Daniel M.
-                                                                    Bivens</a></div>
-                                                            <span>Creator</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-price flex">
-                                                        <div class="title">Current Bid</div>
-                                                        <div class="price">
-                                                            <span>5.23 ETH</span>
-                                                            <span>= $32.420</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div><!-- item-->
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="slider-item">
-                                            <div class="sc-product-item style-2">
-                                                <div class="product-img">
-                                                    <img src="assets/images/product-item/item-16.jpg" alt="Image">
-                                                    <a href="#" data-toggle="modal" data-target="#popup_bid"
-                                                        class="sc-button style letter"><span>Place Bid</span></a>
-                                                    <label>PANDA</label>
-                                                </div>
-                                                <div class="product-content">
-                                                    <h5 class="title"><a href="item-details.html">‘’3D Space Rocket With
-                                                            Smoke’’</a> </h5>
-                                                    <div class="product-author flex">
-                                                        <div class="avatar">
-                                                            <img src="assets/images/avatar/avt-7.jpg" alt="Image">
-                                                        </div>
-                                                        <div class="infor">
-                                                            <div class="author-name"><a href="author.html">Daniel M.
-                                                                    Bivens</a></div>
-                                                            <span>Creator</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-price flex">
-                                                        <div class="title">Current Bid</div>
-                                                        <div class="price">
-                                                            <span>5.23 ETH</span>
-                                                            <span>= $32.420</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div><!-- item-->
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="slider-item">
-                                            <div class="sc-product-item style-2">
-                                                <div class="product-img">
-                                                    <img src="assets/images/product-item/item-17.jpg" alt="Image">
-                                                    <a href="#" data-toggle="modal" data-target="#popup_bid"
-                                                        class="sc-button style letter"><span>Place Bid</span></a>
-                                                    <label>PANDA</label>
-                                                </div>
-                                                <div class="product-content">
-                                                    <h5 class="title"><a href="item-details.html">‘’3D Space Rocket With
-                                                            Smoke’’</a> </h5>
-                                                    <div class="product-author flex">
-                                                        <div class="avatar">
-                                                            <img src="assets/images/avatar/avt-7.jpg" alt="Image">
-                                                        </div>
-                                                        <div class="infor">
-                                                            <div class="author-name"><a href="author.html">Daniel M.
-                                                                    Bivens</a></div>
-                                                            <span>Creator</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-price flex">
-                                                        <div class="title">Current Bid</div>
-                                                        <div class="price">
-                                                            <span>5.23 ETH</span>
-                                                            <span>= $32.420</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div><!-- item-->
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="slider-item">
-                                            <div class="sc-product-item style-2">
-                                                <div class="product-img">
-                                                    <img src="assets/images/product-item/item-12.jpg" alt="Image">
-                                                    <a href="#" data-toggle="modal" data-target="#popup_bid"
-                                                        class="sc-button style letter"><span>Place Bid</span></a>
-                                                    <label>PANDA</label>
-                                                </div>
-                                                <div class="product-content">
-                                                    <h5 class="title"><a href="item-details.html">‘’3D Space Rocket With
-                                                            Smoke’’</a> </h5>
-                                                    <div class="product-author flex">
-                                                        <div class="avatar">
-                                                            <img src="assets/images/avatar/avt-7.jpg" alt="Image">
-                                                        </div>
-                                                        <div class="infor">
-                                                            <div class="author-name"><a href="author.html">Daniel M.
-                                                                    Bivens</a></div>
-                                                            <span>Creator</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-price flex">
-                                                        <div class="title">Current Bid</div>
-                                                        <div class="price">
-                                                            <span>5.23 ETH</span>
-                                                            <span>= $32.420</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div><!-- item-->
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="slider-item">
-                                            <div class="sc-product-item style-2">
-                                                <div class="product-img">
-                                                    <img src="assets/images/product-item/item-13.jpg" alt="Image">
-                                                    <a href="#" data-toggle="modal" data-target="#popup_bid"
-                                                        class="sc-button style letter"><span>Place Bid</span></a>
-                                                    <label>PANDA</label>
-                                                </div>
-                                                <div class="product-content">
-                                                    <h5 class="title"><a href="item-details.html">‘’3D Space Rocket With
-                                                            Smoke’’</a> </h5>
-                                                    <div class="product-author flex">
-                                                        <div class="avatar">
-                                                            <img src="assets/images/avatar/avt-7.jpg" alt="Image">
-                                                        </div>
-                                                        <div class="infor">
-                                                            <div class="author-name"><a href="author.html">Daniel M.
-                                                                    Bivens</a></div>
-                                                            <span>Creator</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-price flex">
-                                                        <div class="title">Current Bid</div>
-                                                        <div class="price">
-                                                            <span>5.23 ETH</span>
-                                                            <span>= $32.420</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div><!-- item-->
-                                    </div>
-                                </div>
-                                <div class="swiper-button-next btn-slide-next "></div>
-                                <div class="swiper-button-prev btn-slide-prev"></div>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
-            </section>
+            </div>
+            <div class="col-md-12">
+                <div class="swiper-container trendy">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="slider-item">
+                                <div class="sc-product-item style-2">
+                                    <div class="product-img">
+                                        <img src="assets/images/categorie/robotic/r1.jpg" alt="Image">
+                                        <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                            class="sc-button style letter"><span></span></a>
+                                        <label>ROBOTIC</label>
+                                    </div>
+                                    <div class="product-content">
+                                        <h5 class="title">‘’
+                                        Learn to program robots to do whatever you want.’’ </h5>
+                                        <div class="product-author flex">
+                                            <div class="avatar">
+                                                <img src="" alt="Image">
+                                            </div>
+                                            <div class="infor">
+                                                <div class="author-name"><a href="https://www.ecolerobots.com/">
+                                                    Ecole Robots</a></div>
+                                             
+                                            </div>
+                                        </div>
+                                        <div class="product-price flex">
+                                            <div class="title"><a href="https://www.ecolerobots.com/">Read More!</a></div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- item-->
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="slider-item">
+                                <div class="sc-product-item style-2">
+                                    <div class="product-img">
+                                        <img src="assets/images/categorie/AI/ai1.jpg" alt="Image">
+                                        <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                            class="sc-button style letter"><span></span></a>
+                                        <label>Artificial Intelligence</label>
+                                    </div>
+                                    <div class="product-content">
+                                        <h5 class="title"> ‘’Just discover the field of artificial intelligence.‘’ </h5>
+                                        <div class="product-author flex">
+                                            <div class="avatar">
+                                                <img src="assets/images/avatar/avt-7.jpg" alt="Image">
+                                            </div>
+                                            <div class="infor">
+                                                <div class="author-name"><a href="https://edufiq.com/artificial-intelligence-course-for-kids/">Edufiq</a></div>
+                                                            </div>
+                                        </div>
+                                        <div class="product-price flex">
+                                            <div class="title"><a href="https://edufiq.com/artificial-intelligence-course-for-kids/">Read More!</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- item-->
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="slider-item">
+                                <div class="sc-product-item style-2">
+                                    <div class="product-img">
+                                        <img src="assets/images/categorie/gaming/g1.jpg" alt="Image">
+                                        <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                            class="sc-button style letter"></a>
+                                        <label>GAMES CREATION</label>
+                                    </div>
+                                    <div class="product-content">
+                                        <h5 class="title"><a href="item-details.html">‘’Playing is fun You can now make your own fun by developing games.’’</a> </h5>
+                                        <div class="product-author flex">
+                                            <div class="avatar">
+                                                <img src="assets/images/avatar/avt-7.jpg" alt="Image">
+                                            </div>
+                                            <div class="infor">
+                                                <div class="author-name"><a href="https://www.udemy.com/course/game-development-for-children/">Udemy</a></div>
+                                               
+                                            </div>
+                                        </div>
+                                        <div class="product-price flex">
+                                            <div class="title"><a href="https://www.udemy.com/course/game-development-for-children/">Read More!</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- item-->
+                        <!-- </div>
+                        <div class="swiper-slide">
+                            <div class="slider-item">
+                                <div class="sc-product-item style-2">
+                                    <div class="product-img">
+                                        <img src="assets/images/product-item/item-15.jpg" alt="Image">
+                                        <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                            class="sc-button style letter"><span>Place Bid</span></a>
+                                        <label>web development</label>
+                                    </div>
+                                    <div class="product-content">
+                                        <h5 class="title"><a href="item-details.html">‘’3D Space Rocket With
+                                                Smoke’’</a> </h5>
+                                        <div class="product-author flex">
+                                            <div class="avatar">
+                                                <img src="assets/images/avatar/avt-7.jpg" alt="Image">
+                                            </div>
+                                            <div class="infor">
+                                                <div class="author-name"><a href="author.html">Daniel M.
+                                                        Bivens</a></div>
+                                                <span>Creator</span>
+                                            </div>
+                                        </div>
+                                        <div class="product-price flex">
+                                            <div class="title"><a href="">Read More!</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <!-- item-->
+                        <!-- </div>
+                        <div class="swiper-slide">
+                            <div class="slider-item">
+                                <div class="sc-product-item style-2">
+                                    <div class="product-img">
+                                        <img src="assets/images/product-item/item-16.jpg" alt="Image">
+                                        <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                            class="sc-button style letter"><span>Place Bid</span></a>
+                                        <label>Mobile development</label>
+                                    </div>
+                                    <div class="product-content">
+                                        <h5 class="title"><a href="item-details.html">‘’3D Space Rocket With
+                                                Smoke’’</a> </h5>
+                                        <div class="product-author flex">
+                                            <div class="avatar">
+                                                <img src="assets/images/avatar/avt-7.jpg" alt="Image">
+                                            </div>
+                                            <div class="infor">
+                                                <div class="author-name"><a href="author.html">Daniel M.
+                                                        Bivens</a></div>
+                                                <span>Creator</span>
+                                            </div>
+                                        </div>
+                                        <div class="product-price flex">
+                                            <div class="title"><a href="">Read More!</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            item -->
+                        <!-- </div>
+                        <div class="swiper-slide">
+                            <div class="slider-item">
+                                <div class="sc-product-item style-2">
+                                    <div class="product-img">
+                                        <img src="assets/images/product-item/item-15.jpg" alt="Image">
+                                        <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                            class="sc-button style letter"><span>Place Bid</span></a>
+                                        <label>Web development</label>
+                                    </div>
+                                    <div class="product-content">
+                                        <h5 class="title"><a href="item-details.html">‘’3D Space Rocket With
+                                                Smoke’’</a> </h5>
+                                        <div class="product-author flex">
+                                            <div class="avatar">
+                                                <img src="assets/images/avatar/avt-7.jpg" alt="Image">
+                                            </div>
+                                            <div class="infor">
+                                                <div class="author-name"><a href="author.html">Daniel M.
+                                                        Bivens</a></div>
+                                                <span>Creator</span>
+                                            </div>
+                                        </div>
+                                        <div class="product-price flex">
+                                            <div class="title"><a href="">Read More!</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <!-- item-->
+                        <!-- </div>
+                        <div class="swiper-slide">
+                            <div class="slider-item">
+                                <div class="sc-product-item style-2">
+                                    <div class="product-img">
+                                        <img src="assets/images/product-item/item-16.jpg" alt="Image">
+                                        <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                            class="sc-button style letter"><span>Place Bid</span></a>
+                                        <label>Web development</label>
+                                    </div>
+                                    <div class="product-content">
+                                        <h5 class="title"><a href="item-details.html">‘’3D Space Rocket With
+                                                Smoke’’</a> </h5>
+                                        <div class="product-author flex">
+                                            <div class="avatar">
+                                                <img src="assets/images/avatar/avt-7.jpg" alt="Image">
+                                            </div>
+                                            <div class="infor">
+                                                <div class="author-name"><a href="author.html">Daniel M.
+                                                        Bivens</a></div>
+                                                <span>Creator</span>
+                                            </div>
+                                        </div>
+                                        <div class="product-price flex">
+                                            <div class="title"><a href="">Read More!</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <!-- item-->
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="slider-item">
+                                <div class="sc-product-item style-2">
+                                    <div class="product-img">
+                                        <img src="assets/images/categorie/dev web/dev1.jpg" alt="Image">
+                                        <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                            class="sc-button style letter"></a>
+                                        <label>Web development</label>
+                                    </div>
+                                    <div class="product-content">
+                                        <h5 class="title"><a href="item-details.html">‘’Do you want to lose weight, you can do that through web development.’’</a> </h5>
+                                        <div class="product-author flex">
+                                            <div class="avatar">
+                                                <img src="assets/images/avatar/avt-7.jpg" alt="Image">
+                                            </div>
+                                            <div class="infor">
+                                                <div class="author-name"><a href="https://www.codewizardshq.com/web-1-coding-class/">Codewizardshq</a></div>
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="product-price flex">
+                                            <div class="title"><a href="https://www.codewizardshq.com/web-1-coding-class/">Read More!</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- item-->
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="slider-item">
+                                <div class="sc-product-item style-2">
+                                    <div class="product-img">
+                                        <img src="assets/images/categorie/mobile app dev/m1.jpg" alt="Image">
+                                        <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                            class="sc-button style letter"></a>
+                                        <label>Mobile development</label>
+                                    </div>
+                                    <div class="product-content">
+                                        <h5 class="title"><a href="item-details.html">‘’Learn mobile app development now’’</a> </h5>
+                                        <div class="product-author flex">
+                                            <div class="avatar">
+                                                <img src="assets/images/avatar/avt-7.jpg" alt="Image">
+                                            </div>
+                                            <div class="infor">
+                                                <div class="author-name"><a href="https://tekkieuni.com/fr/courses/build-your-first-app/">tekkieuni</a></div>
+                                               
+                                            </div>
+                                        </div>
+                                        <div class="product-price flex">
+                                            <div class="title"><a href="https://tekkieuni.com/fr/courses/build-your-first-app/">Read More!</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- item-->
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="slider-item">
+                                <div class="sc-product-item style-2">
+                                    <div class="product-img">
+                                        <img src="assets/images/categorie/HACKING/H1.jpg" alt="Image">
+                                        <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                            class="sc-button style letter"></a>
+                                        <label>HACKING</label>
+                                    </div>
+                                    <div class="product-content">
+                                        <h5 class="title"><a href="item-details.html">‘’You can change it by using hack for the benefit of people’’</a> </h5>
+                                        <div class="product-author flex">
+                                            <div class="avatar">
+                                                <img src="assets/images/avatar/avt-7.jpg" alt="Image">
+                                            </div>
+                                            <div class="infor">
+                                                <div class="author-name"><a href="https://redteam360.com/courses/ethical-hacker-junior/#:~:text=Ethical%20Hacker%20Junior%20is%20an,age%20of%2013%20to%2018.">redteam360</a></div>
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="product-price flex">
+                                            <div class="title"><a href="https://redteam360.com/courses/ethical-hacker-junior/#:~:text=Ethical%20Hacker%20Junior%20is%20an,age%20of%2013%20to%2018.">Read More!</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- item-->
+                        </div>
+                    </div>
+                    <div class="swiper-button-next btn-slide-next "></div>
+                    <div class="swiper-button-prev btn-slide-prev"></div>
+                </div>
+            </div>
 
+        </div>
+    </div>
+</section>
 
 
 
@@ -1264,35 +1296,169 @@
 
 
 
+<section class="tf-latest-collections tf-section bg-color-2" style="height:125vh ;">
+    <div class="container">
+        <div class="inner">
+            <h3>Latest Collections</h3>
+            <p class="desc">Most popular gaming digital nft market place </p>
+        </div>
+        <div class="row">
 
 
+        <div id="carouselExampleControls" class="carousel slide w-100" data-ride="carousel" >
+            <div class="carousel-inner" >
+                 <!-- slide 1 -->
+              <div class="carousel-item active row" >
 
+                  <div class="h2-titel col-4">
+                        <h2 style="color: #6ce6fb;">Robotics</h2>
+                        <p>Robotics is an interdisciplinary branch of computer science and engineering.[1] Robotics involves design, construction, operation, and use of robots. The goal of robotics is to design machines that can help and assist humans. Robotics integrates fields of mechanical engineering, electrical engineering, information engineering, mechatronics, electronics, bioengineering, computer engineering, control engineering, software engineering, mathematics, etc.
 
+                            Robotics develops machines that can substitute for humans and replicate human actions. Robots can be used in many situations for many purposes, but today many are used in dangerous environments (including inspection of radioactive materials.</p>
+                  </div>
+                  <div class="img-photo col-8">
+                    <img class="d-block w-100" src="https://images2.alphacoders.com/167/167502.jpg" alt="First slide" style="height:80vh ;">
+                 </div>
+                
+              </div>
 
+                 <!-- slide 2 -->
+             
 
+              <div class="carousel-item">
+                <div class="h2-titel col-4">
+                    <h2 style="color:#1e3678 ;">Artificial Intelligence</h2>
+                    <p>Artificial intelligence (AI) is intelligence demonstrated by machines, as opposed to the natural intelligence displayed by animals including humans. AI research has been defined as the field of study of intelligent agents, which refers to any system that perceives its environment and takes actions that maximize its chance of achieving its goals.[a]
 
+                        The term "artificial intelligence" had previously been used to describe machines that mimic and display "human" cognitive skills that are associated with the human mind, such as "learning" and "problem-solving".</p>
+              </div>
+              <div class="img-photo col-8">
+                <img class="d-block w-100" src="https://browsecat.net/sites/default/files/brain-artificial-intelligence-human-hd-wallpapers-51017-747969-3651926.png" alt="First slide" style="height:80vh ;">
+              </div>
+              </div>
 
+                 <!-- slide 3 -->
 
+              <div class="carousel-item">
+                <div class="h2-titel col-4">
+                    <h2 style="color: #14ccac;">Gaming</h2>
+                    <p>A video game[a] or computer game is an electronic game that involves interaction with a user interface or input device  such as a joystick, controller, keyboard, or motion sensing device  to generate visual feedback. This feedback mostly commonly is shown on a video display device, such as a TV set, monitor, touchscreen, or virtual reality headset. Some computer games do not always depend on a graphics display, for example text adventure games and computer chess can be played through teletype printers. Video games are often augmented with audio feedback delivered through speakers or headphones, and sometimes with other types of feedback, including haptic technology.</p>
+              </div>
+              <div class="img-photo col-8">
+                <img class="d-block w-100" src="https://images7.alphacoders.com/370/thumb-1920-370408.png" alt="First slide" style="height:80vh ;">
+              </div>
+              </div>
+                 <!-- slide 4 -->
 
+              <div class="carousel-item">
+                <div class="h2-titel col-4">
+                  <h2 style="color: #14ccac;">Web Development</h2>
+                    <p>Web development is the work involved in developing a website for the Internet (World Wide Web) or an intranet (a private network).[1] Web development can range from developing a simple single static page of plain text to complex web applications, electronic businesses, and social network services. A more comprehensive list of tasks to which Web development commonly refers, may include Web engineering, Web design, Web content development, client liaison, client-side/server-side scripting, Web server and network security configuration, and e-commerce development.</p>
+              </div>
+              <div class="img-photo col-8">
+                <img class="d-block w-100" src="https://photoviewer.site/dpl/rsVp126FkVt971pF6XEzmju96ddgtz1Zh8RMtMBGP81OzHuk0QOGvE5FNCD5BcTE1GofL1zcAk6eOei5oaWiUX9VciefTb%2FrJvfR%2B4l2BhkaDg%2Bu8HdVrV2cKS5ZbFejhyFTae0Wn30Le5eyqSRlkJ5l1unGra%2Fc%2BusKwAgPRk9mQpxjESb9xXzMJY3dEyud9m9D6%2FHEh%2B1oP8RP3lAhAPOUOOkUrw%2BaEeT0wFQQ3cICAWqY9Op1LJh8IL%2F5FcbS" alt="First slide" style="height:80vh ;">
+              </div>
 
+             </div>
 
 
+              <!-- slide 5 -->
 
+              <div class="carousel-item">
+                <div class="h2-titel col-4">
+                  <h2 style="color: #14ccac;">Mobile Development</h2>
+                    <p>Mobile app development is the act or process by which a mobile app is developed for mobile devices, such as personal digital assistants, enterprise digital assistants or mobile phones. These software applications are designed to run on mobile devices, such as a smartphone or tablet computer. These applications can be pre-installed on phones during manufacturing platforms, or delivered as web applications using server-side or client-side processing (e.g., JavaScript) to provide an "application-like" experience within a web browser. Application software developers also must consider a long array of screen sizes.</p>
+              </div>
+              <div class="img-photo col-8">
+                <img class="d-block w-100" src="https://photoviewer.site/dpl/rsVp126FkVt971pF6XEzmju96ddgtz1Zh8RMtMBGP81OzHuk0QOGvE5FNCD5BcTE1GofL1zcAk6eOei5oaWiUX9VciefTb%2FrJvfR%2B4l2BhkaDg%2Bu8HdVrV2cKS5ZbFejhyFTae0Wn30Le5eyqSRlkJ5l1unGra%2Fc%2BusKwAgPRk9mQpxjESb9xXzMJY3dEyud9m9D6%2FHEh%2B1oP8RP3lAhAPOUOOkUrw%2BaEeT0wFQQ3cICAWqY9Op1LJh8IL%2F5FcbS" alt="First slide" style="height:80vh ;">
+              </div>
 
+             </div>
 
 
 
+              <!-- slide 6 -->
 
+              <div class="carousel-item">
+                <div class="h2-titel col-4">
+                  <h2 style="color: #14ccac;">Hacking</h2>
+                    <p>A hacker is a person skilled in information technology who uses their technical knowledge to achieve a goal or overcome an obstacle, within a computerized system by non-standard means. Though the term hacker has become associated in popular culture with a security hacker someone who utilizes their technical know-how of bugs or exploits to break into computer systems and access data which would otherwise be inaccessible to them  hacking can also be utilized by legitimate figures in legal situations. For example, law enforcement agencies sometimes use hacking techniques in order to collect evidence on criminals and other malicious actors. This could include using anonymity tools (such as a VPN, or the dark web) to mask their identities online.</p>
+              </div>
+              <div class="img-photo col-8">
+                <img class="d-block w-100" src="https://photoviewer.site/dpl/rsVp126FkVt971pF6XEzmju96ddgtz1Zh8RMtMBGP81OzHuk0QOGvE5FNCD5BcTE1GofL1zcAk6eOei5oaWiUX9VciefTb%2FrJvfR%2B4l2BhkaDg%2Bu8HdVrV2cKS5ZbFejhyFTae0Wn30Le5eyqSRlkJ5l1unGra%2Fc%2BusKwAgPRk9mQpxjESb9xXzMJY3dEyud9m9D6%2FHEh%2B1oP8RP3lAhAPOUOOkUrw%2BaEeT0wFQQ3cICAWqY9Op1LJh8IL%2F5FcbS" alt="First slide" style="height:80vh ;">
+              </div>
 
+             </div>
 
 
 
 
+
+
+
+
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+
+
+            <div class="col-md-12">
+                <div class="sc-heading style-2">
+                    <div class="content-left">
+                        
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+<!-- slilder slerder -->
+<!-- slilder slerder -->
+<!-- slilder slerder -->
+   <!-- slilder slerder -->
+        <!-- slilder slerder -->
+             <!-- slilder slerder -->
+                  <!-- slilder slerder -->
+                       <!-- slilder slerder -->
+                            <!-- slilder slerder -->
+                                 <!-- slilder slerder -->
+                                      <!-- slilder slerder -->
+                                           <!-- slilder slerder -->
+                                                <!-- slilder slerder -->
+
+            
 
             
 
 
 
+<!-- slilder slerder -->
+<!-- slilder slerder -->
+<!-- slilder slerder -->
+   <!-- slilder slerder -->
+        <!-- slilder slerder -->
+             <!-- slilder slerder -->
+                  <!-- slilder slerder -->
+                       <!-- slilder slerder -->
+                            <!-- slilder slerder -->
+                                 <!-- slilder slerder -->
+                                      <!-- slilder slerder -->
+                                           <!-- slilder slerder -->
+                                                <!-- slilder slerder -->
+                                                
+
+        </div>
+    </div>
+</section>
 
 
 
@@ -1300,73 +1466,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            
-
-            <section class="tf-latest-collections tf-section bg-color-2">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="sc-heading style-2">
-                                <div class="content-left">
-                                    <div class="inner">
-                                        <h3>Latest Collections</h3>
-                                        <p class="desc">Most popular gaming digital nft market place </p>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-     <!-- slilder slerder -->
-     <!-- slilder slerder -->
-          <!-- slilder slerder -->
-               <!-- slilder slerder -->
-                    <!-- slilder slerder -->
-                         <!-- slilder slerder -->
-                              <!-- slilder slerder -->
-                                   <!-- slilder slerder -->
-                                        <!-- slilder slerder -->
-                                             <!-- slilder slerder -->
-                                                  <!-- slilder slerder -->
-                                                       <!-- slilder slerder -->
-                                                            <!-- slilder slerder -->
-                                                            
-
-                    </div>
-                </div>
-            </section>
 
 
 
