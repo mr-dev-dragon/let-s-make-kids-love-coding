@@ -15,7 +15,7 @@
 
     <!-- Theme Style -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-
+    <link rel="stylesheet" type="text/css" href="assets/css/cat.css">
     <!-- Reponsive -->
     <link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
 
@@ -205,47 +205,6 @@
 
 
 
-            <script>
-               const carouselItems = document.querySelectorAll('.carousel li');
-                const paginationItems = document.querySelectorAll('.pagination li');
-                const nextButtons = document.querySelectorAll('.next');
-                const title = document.querySelector('#item-title');
-
-                let activeItem = 0;
-
-                const updateItems = (announce = true) => {
-                    carouselItems.forEach((item, i) => {
-                    const isActive = activeItem % carouselItems.length === i;
-                    item.classList[isActive ? 'add' : 'remove']('active')
-                    item.setAttribute('aria-hidden', isActive ? false : true)
-                                    
-                    if(isActive) {
-                    if(announce) title.innerText = `Carousel updated to ${item.dataset.title} content`
-                    item.focus();
-                    }
-                })
-                    paginationItems.forEach((item, i) => item.classList[activeItem % paginationItems.length === i ? 'add' : 'remove']('active'))
-                    nextButtons.forEach((item, i) => item.setAttribute('tabindex', activeItem % paginationItems.length === i ? null : -1))
-                }
-
-                paginationItems.forEach((item, i) => {
-                    item.addEventListener('click', () => {
-                        activeItem = i;
-                    updateItems();
-                    })
-                })
-
-                nextButtons.forEach((item, i) => {
-                    item.addEventListener('click', () => {
-                    activeItem++;
-                        updateItems();
-                    })
-                })
-
-                updateItems(false);
-    </script>
-
-
 
 
 
@@ -284,69 +243,103 @@
 
 
 
-        <article class="w-100">
-
-
-                        <div class="iconss">
-                            <svg>
-                                <defs>
-                                    <path id="icon-layer" d="M12.41 148.02l232.94 105.67c6.8 3.09 14.49 3.09 21.29 0l232.94-105.67c16.55-7.51 16.55-32.52 0-40.03L266.65 2.31a25.607 25.607 0 0 0-21.29 0L12.41 107.98c-16.55 7.51-16.55 32.53 0 40.04zm487.18 88.28l-58.09-26.33-161.64 73.27c-7.56 3.43-15.59 5.17-23.86 5.17s-16.29-1.74-23.86-5.17L70.51 209.97l-58.1 26.33c-16.55 7.5-16.55 32.5 0 40l232.94 105.59c6.8 3.08 14.49 3.08 21.29 0L499.59 276.3c16.55-7.5 16.55-32.5 0-40zm0 127.8l-57.87-26.23-161.86 73.37c-7.56 3.43-15.59 5.17-23.86 5.17s-16.29-1.74-23.86-5.17L70.29 337.87 12.41 364.1c-16.55 7.5-16.55 32.5 0 40l232.94 105.59c6.8 3.08 14.49 3.08 21.29 0L499.59 404.1c16.55-7.5 16.55-32.5 0-40z" />
-                                    <path id="icon-height" d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z" />
-                                    <path id="icon-center" d="M200 288H88c-21.4 0-32.1 25.8-17 41l32.9 31-99.2 99.3c-6.2 6.2-6.2 16.4 0 22.6l25.4 25.4c6.2 6.2 16.4 6.2 22.6 0L152 408l31.1 33c15.1 15.1 40.9 4.4 40.9-17V312c0-13.3-10.7-24-24-24zm112-64h112c21.4 0 32.1-25.9 17-41l-33-31 99.3-99.3c6.2-6.2 6.2-16.4 0-22.6L481.9 4.7c-6.2-6.2-16.4-6.2-22.6 0L360 104l-31.1-33C313.8 55.9 288 66.6 288 88v112c0 13.3 10.7 24 24 24zm96 136l33-31.1c15.1-15.1 4.4-40.9-17-40.9H312c-13.3 0-24 10.7-24 24v112c0 21.4 25.9 32.1 41 17l31-32.9 99.3 99.3c6.2 6.2 16.4 6.2 22.6 0l25.4-25.4c6.2-6.2 6.2-16.4 0-22.6L408 360zM183 71.1L152 104 52.7 4.7c-6.2-6.2-16.4-6.2-22.6 0L4.7 30.1c-6.2 6.2-6.2 16.4 0 22.6L104 152l-33 31.1C55.9 198.2 66.6 224 88 224h112c13.3 0 24-10.7 24-24V88c0-21.3-25.9-32-41-16.9z" />
-                                    <path id="icon-cat" d="M290.59 192c-20.18 0-106.82 1.98-162.59 85.95V192c0-52.94-43.06-96-96-96-17.67 0-32 14.33-32 32s14.33 32 32 32c17.64 0 32 14.36 32 32v256c0 35.3 28.7 64 64 64h176c8.84 0 16-7.16 16-16v-16c0-17.67-14.33-32-32-32h-32l128-96v144c0 8.84 7.16 16 16 16h32c8.84 0 16-7.16 16-16V289.86c-10.29 2.67-20.89 4.54-32 4.54-61.81 0-113.52-44.05-125.41-102.4zM448 96h-64l-64-64v134.4c0 53.02 42.98 96 96 96s96-42.98 96-96V32l-64 64zm-72 80c-8.84 0-16-7.16-16-16s7.16-16 16-16 16 7.16 16 16-7.16 16-16 16zm80 0c-8.84 0-16-7.16-16-16s7.16-16 16-16 16 7.16 16 16-7.16 16-16 16z" />
-                                </defs>
-                            </svg>
-                        </div>
-                        
-                        <div class="page">
-                            <h1 class="h11"><span>Grid Overlap</span> Carousel</h1>
-                            <ul class="carousel" aria-live="polite">
-                            <h2 id="item-title" class=" h22 visually-hidden"></h2>
-                                <li data-title="overlapped items">
-                                    <p>All the carousel items are placed in the same cell so that they overlap each other.</p>	
-                              <pre><code class="language-css">.carousel {
-                          display: grid;
-                          grid-template-areas: 'overlap';
-                        }
-                          
-                        .carousel li {
-                          grid-area: overlap;
-                         }</code></pre>
-                              <button class="next">Next</button>
-                                </li>
-                                <li data-title="container height">
-                                    <svg viewBox="0 0 256 512" height="50" title="arrows-alt-v">
-                                      <use href="#icon-height">
-                                    </svg>
-                                    <p>The container height will always match the tallest item in the carousel, without needing javascript.</p>
-                              <button class="next">Next</button>
-                                </li>
-                                <li data-title="content centered">
-                                    <svg viewBox="0 0 512 512" width="50" title="compress-arrows-alt">
-                                      <use href="#icon-center">
-                                    </svg>
-                                    <p>It's also simple to place each item in the center without using absolute positioning.</p>
-                              <button class="next">Next</button>
-                                </li>
-                                <li data-title="surprise">
-                                    <p>Surprise Kitten!</p>
-                                    <img class="imgg" src='https://images.unsplash.com/photo-1602592818892-305611f06492?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NTI5ODM1MTc&ixlib=rb-1.2.1&q=80&w=400' alt=''>
-                              <button class="next">Restart</button>
-                                </li>
-                            </ul>
+                        <article class="jo">
+                            <input class="hou" type="checkbox" id="toggle">
+                            <label class="labell" for="toggle">
+                                <div class="city">
+                                    <div class="moon"></div>
+                                    <div class="fence"></div>
+                                </div>
+                                <div class="cat">
+                                    <div class="leg front right">
+                                        <div class="section upper-leg">
+                                            <div class="section lower-leg">
+                                                <div class="section foot">
+                                                    <div class="section paw"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="leg back right">
+                                        <div class="section upper-leg">
+                                            <div class="section lower-leg">
+                                                <div class="section foot">
+                                                    <div class="section paw"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="bodyyy">
+                                        <div class="section">
+                                        <div class="section">
+                                        <div class="section">
+                                        </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <div class="neck">
+                                        <div class="main"></div>
+                                        <div class="shoulder"></div>
+                                    </div>
+                                    <div class="head">
+                                        <div class="ear right"></div>
+                                        <div class="main"></div>
+                                        <div class="snout"></div>
+                                        <div class="mouth"></div>
+                                        <div class="ear left"></div>
+                                    </div>
+                                    <div class="tail">
+                                        <div class="section">
+                                            <div class="section">
+                                            <div class="section">
+                                            <div class="section">
+                                            <div class="section">
+                                            <div class="section">
+                                            <div class="section">
+                                                <div class="section halfway">
+                                                    <div class="section">
+                                                    <div class="section">
+                                                    <div class="section">
+                                                    <div class="section">
+                                                    <div class="section">
                             
-                            <ul class="pagination" aria-label="Carousel pagination menu">
-                                <li><button data-index="0"><svg aria-hidden="true" viewBox="0 0 512 512" height="20"><use href="#icon-layer"></svg><span class="visually-hidden">Overlapped items</span></button></li>
-                                <li><button data-index="1"><svg aria-hidden="true" viewBox="0 0 256 512" height="20"><use href="#icon-height"></svg><span class="visually-hidden">Container height</span></button></li>
-                                <li><button data-index="2"><svg aria-hidden="true" viewBox="0 0 512 512" height="20"><use href="#icon-center"></svg><span class="visually-hidden">Content centered</span></button></li>
-                                <li><button data-index="3"><svg aria-hidden="true" viewBox="0 0 512 512" height="20"><use href="#icon-cat"></svg><span class="visually-hidden">Surprise</span></button></li>
-                            </ul>
-                                
-                        </div>
-
-
-
-                    </article>
+                                                    </div>
+                                                    </div>
+                                                    </div>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            </div>
+                                            </div>
+                                            </div>
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="leg front left">
+                                        <div class="section upper-leg">
+                                            <div class="section lower-leg">
+                                                <div class="section foot">
+                                                    <div class="section paw"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="leg back left">
+                                        <div class="section upper-leg">
+                                            <div class="section lower-leg">
+                                                <div class="section foot">
+                                                    <div class="section paw"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </label>
+                             </article>
+                            
 
 
 

@@ -1,0 +1,634 @@
+:root
+{
+	
+
+	--outlines: transparent; 
+	
+	--speed-wag: 8s;
+	--speed-walk: 2s;
+	--speed-walk-delay: -1s;
+	--speed-walk-back-delay: -.2s;
+	--cat-width: 45rem;
+	--cat-height: 25rem;
+	--color-cat: #00183C;
+	--color-cat-back: #000710;
+	--color-background: #000E30;
+	--color-moon: #C6CEE3;
+	--color-frence: #04348D;
+	--color-frence-alt: #09327E;
+}
+
+.hou[type=checkbox]
+{
+	opacity: 0;
+    
+}
+
+.hou[type=checkbox]:checked ~ label 
+{
+	--outlines: white;
+	
+	--speed-wag: 12s;
+	--speed-walk: 8s;
+	--speed-walk-delay: -4s;
+	--speed-walk-back-delay: -8s;
+	
+	--color-cat: rgba(0,0,255,0.75);
+	--color-cat-back: rgba(0,155,155,0.75);
+}
+
+// https://ste.vg/
+
+*{ }
+
+.jo
+{   
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.labell
+{margin-top: 200px;
+	cursor: pointer;
+    position: relative; 
+}
+
+.cat
+{
+	width: var(--cat-width);	
+	height: var(--cat-height);	
+	
+	*{ border: 1px solid var(--outlines); }
+	
+	>*
+	{
+		position: absolute;
+		top: var(--part-y, 0);
+		left: var(--part-x, 0);
+		width: var(--part-width, 10px);	
+		height: var(--part-height, 10px);
+		border-radius: var(--part-radius, 0);
+		transform: rotate(var(--part-rotate, 0deg));
+		transform-origin: var(--part-origin, 50% 50%);
+		
+		*
+		{
+			position: absolute;
+			background-color: var(--color-cat);
+			top: var(--shape-y, 0);
+			left: var(--shape-x, 0);
+			width: var(--shape-width, 10px);	
+			height: var(--shape-height, 10px);	
+			border-radius: var(--shape-radius, 0);
+			transform: rotate(var(--shape-rotate, 0deg));
+			transform-origin: var(--shape-origin, 50% 50%);
+		}
+	}
+	
+	.head
+	{
+		--part-width: 20%;
+		--part-height: 41%;
+		--part-x: 0%;
+		--part-y: 33%;	
+		--part-origin: 0% 50%;
+		
+		animation: head-bob calc(var(--speed-walk) / 2) infinite ease-in-out;
+		
+		.ear
+		{
+			--shape-width: 25%;
+			--shape-height: 30%;
+			--shape-x: 30%;
+			--shape-y: 10%;
+			--shape-radius: 0 100% 0 0;
+			
+			animation: ear-bob calc(var(--speed-walk)) infinite ease-in-out;
+			
+			&.left
+			{
+				--shape-x: 50%;
+				--shape-y: 0%;
+				
+				animation-delay: var(--speed-walk-delay);
+			}
+		}
+		
+		.main
+		{
+			--shape-width: 80%;
+			--shape-height: 60%;
+			--shape-x: 10%;
+			--shape-y: 30%;
+			--shape-rotate: -20deg;
+			--shape-radius: 40% 20% 50% 50%;
+		}
+		
+		.snout
+		{
+			--shape-width: 40%;
+			--shape-height: 40%;
+			--shape-x: 3%;
+			--shape-y: 50%;
+			--shape-rotate: -20deg;
+			--shape-radius: 50%;
+		}
+		
+		.mouth
+		{
+			--shape-width: 45%;
+			--shape-height: 20%;
+			--shape-x: 16%;
+			--shape-y: 75%;
+			--shape-rotate: -20deg;
+			--shape-radius: 0 0 0 50%;
+		}
+	}
+	
+	.neck
+	{
+		--part-width: 18%;
+		--part-height: 25%;
+		--part-x: 10%;
+		--part-y: 33%;
+		--part-origin: 100% 50%;
+		--part-rotate: -35deg;
+		
+		animation: neck-tilt calc(var(--speed-walk) / 2) infinite ease-in-out;
+		
+		.main
+		{
+			--shape-width: 100%;
+			--shape-height: 70%;
+			--shape-radius: 30%;
+			
+			&:after
+			{
+				position: absolute;
+				content: '';
+				display: block;
+				width: 50%;
+				height: 130%;
+				top: 0%;
+				left: -5%;
+				border-radius: 50%;
+				transform: rotate(125deg);
+				// r
+				box-shadow: -0.08rem 0rem 0 0 var(--color-cat);
+			}
+		}
+		
+		.shoulder
+		{
+			--shape-width: 80%;
+			--shape-height: 60%;
+			--shape-x: 58%;
+			--shape-y: 3%;
+			--shape-rotate: 20deg;
+			--shape-radius: 50%;
+		}
+	}
+	
+	.bodyyy
+	{
+		--part-width: 50%;
+		--part-height: 35%;
+		--part-x: 22%;
+		--part-y: 35%;
+		--part-rotate: 0deg;
+		--part-origin: 90% 50%;
+		
+		animation-delay: var(--speed-walk-back-delay);
+		
+		.section
+		{
+			--shape-width: 100%;
+			--shape-height: 90%;
+			--shape-x: 50%;
+			--shape-y: 0%;
+			--shape-origin: 0% 50%;
+			--shape-radius: 20% 35% 30% 0%;
+			
+			animation: body-bend calc(var(--speed-walk) / 2) infinite ease-in-out;
+			animation-delay: var(--speed-walk-back-delay);
+		}
+		
+		>.section
+		{
+			--shape-width: 50%;
+			--shape-height: 100%;
+			--shape-x: 0%;
+			--shape-radius: 50% 5% 80% 40%;
+		}
+	}
+	
+	.leg.front
+	{
+		--part-width: 15%;
+		--part-height: 50%;
+		--part-x: 22%;
+		--part-y: 50%;
+		
+		.section
+		{
+			--shape-width: 100%;
+			--shape-height: 57%;
+			--shape-x: 0%;
+			--shape-y: 60%;
+			--shape-origin: 50% 0%;
+			--shape-radius: 100% / 50%;
+		}
+		
+		.upper-leg
+		{
+			--shape-width: 100%;
+			--shape-y: -14%;
+			--shape-rotate: -20deg;
+			--shape-radius: 50% 100%;
+			
+			animation: front-upper-leg-walk var(--speed-walk) infinite linear;
+		}
+		
+		.lower-leg
+		{
+			--shape-width: 43%;
+			--shape-height: 100%;
+			--shape-x: 40%;
+			--shape-rotate: 0deg;
+			
+			animation: front-lower-leg-walk var(--speed-walk) infinite linear;
+		}
+		
+		.foot
+		{
+			--shape-width: 100%;
+			--shape-height: 70%;
+			--shape-x: 0%;
+			--shape-y: 70%;
+			--shape-origin: 50% 20%;
+			
+			animation: front-foot-walk var(--speed-walk) infinite linear;
+		}
+		
+		.paw
+		{
+			--shape-width: 150%;
+			--shape-height: 60%;
+			--shape-x: -50%;
+			--shape-y: 40%;
+			--shape-origin: 75% 50%;
+			--shape-radius: 60% 10% 60% 20%;
+			
+			animation: front-paw-walk var(--speed-walk) infinite linear;
+		}
+		
+		
+	}
+	
+	.leg.back
+	{
+		--part-width: 15%;
+		--part-height: 60%;
+		--part-x: 55%;
+		--part-y: 41%;
+		
+		.section
+		{
+			--shape-width: 100%;
+			--shape-height: 70%;
+			--shape-x: 0%;
+			--shape-y: 60%;
+			--shape-origin: 50% 20%;
+			--shape-radius: 100% / 50%;
+		}
+		
+		.upper-leg
+		{
+			--shape-radius: 50%;
+			--shape-height: 80%;
+			--shape-y: -20%;
+			--shape-x: -10%;
+			
+			animation: back-upper-leg-walk var(--speed-walk) infinite linear;
+		}
+		
+		.lower-leg
+		{
+			--shape-width: 50%;
+			--shape-height: 60%;
+			--shape-x: 20%;
+			--shape-y: 60%;
+			--shape-origin: 50% 10%;
+			
+			animation: back-lower-leg-walk var(--speed-walk) infinite linear;
+		}
+		
+		.foot
+		{
+			--shape-width: 75%;
+			--shape-height: 100%;
+			--shape-x: 0%;
+			--shape-y: 60%;
+			
+			animation: back-foot-walk var(--speed-walk) infinite linear;
+		}
+		
+		.paw
+		{
+			--shape-width: 110%;
+			--shape-height: 45%;
+			--shape-x: -2%;
+			--shape-y: 80%;
+			--shape-origin: 80% 10%;
+			--shape-radius: 20% 40% 20% 60%;
+			
+			animation: back-paw-walk var(--speed-walk) infinite linear;
+		}
+	}
+	
+	.leg.right // Q
+	{
+		.section
+		{
+			background-color: var(--color-cat-back);
+		}
+		
+		&.front
+		{
+			.upper-leg
+			{
+				background-color: var(--color-cat);
+			}
+		
+			.upper-leg,
+			.lower-leg,
+			.foot,
+			.paw
+			{ 
+				animation-delay: var(--speed-walk-delay)
+			}
+		}
+		
+		&.back
+		{
+			.upper-leg,
+			.lower-leg,
+			.foot,
+			.paw
+			{ 
+				animation-delay: calc(var(--speed-walk-delay) + var(--speed-walk-back-delay));
+			}
+		}
+	}
+	
+	.leg.left
+	{
+		&.back
+		{
+			.upper-leg,
+			.lower-leg,
+			.foot,
+			.paw
+			{ 
+				animation-delay: var(--speed-walk-back-delay);
+			}
+		}
+	}
+	
+	.tail
+	{
+		--part-width: 60%;
+		--part-height: 15%;
+		--part-x: 65%;
+		--part-y: 17%;           
+		
+		animation: tail-bob calc(var(--speed-walk) / 2) infinite ease-in-out;
+		animation-delay: var(--speed-walk-back-delay);
+		
+		.section
+		{
+			--shape-width: 100%;
+			--shape-height: 90%;
+			--shape-x: 50%;
+			--shape-origin: 0% 0%;
+			--shape-rotate: -5deg;
+			--shape-radius: 0% 50% 50% 0%;
+			
+			animation: wag-top var(--speed-wag) infinite ease-in-out;
+			
+			&.halfway *
+			{
+				animation: wag-tail calc(var(--speed-wag) * 2.13) infinite ease-in-out;
+			}
+		}
+		
+		>.section
+		{
+			--shape-width: 12.5%;
+			--shape-height: 100%;
+			--shape-x: -5%;
+		}
+	}
+}
+
+@keyframes wag-top
+{
+	0% 		{ transform: rotate(-10deg); }
+	50% 	{ transform: rotate(5deg); }
+	100% 	{ transform: rotate(-10deg); }
+}
+
+@keyframes wag-tail
+{
+	0% 		{ transform: rotate(15deg); }
+	50% 	{ transform: rotate(-30deg); }
+	100% 	{ transform: rotate(15deg); }
+}
+
+@keyframes tail-bob
+{
+	0% 		{ transform: translatey(75%); }
+	50% 	{ transform: translatey(50%); }
+	100% 	{ transform: translatey(75%); }
+}
+
+@keyframes head-bob
+{
+	0% 		{ transform: rotate(0deg); }
+	50% 	{ transform: rotate(5deg); }
+	100% 	{ transform: rotate(0deg); }
+}
+
+@keyframes ear-bob
+{
+	0% 		{ transform: translatex(-10%) 	translatey(10%); }
+	50% 	{ transform: translatex(0) 		translatey(0); }
+	100% 	{ transform: translatex(-10%) 	translatey(10%); }
+	
+	// E
+}
+
+@keyframes body-bend
+{
+	0% 		{ transform: rotate(-3deg); }
+	50% 	{ transform: rotate(-4.5deg); }
+	100% 	{ transform: rotate(-3deg); }
+}
+
+@keyframes body-bob
+{
+	0% 		{ transform: rotate(0deg); }
+	50% 	{ transform: rotate(4deg); }
+	100% 	{ transform: rotate(0deg); }
+}
+
+@keyframes neck-tilt
+{
+	0% 		{ transform: rotate(-30deg); }
+	50% 	{ transform: rotate(-35deg); }
+	100% 	{ transform: rotate(-30deg); }
+}
+
+@keyframes front-upper-leg-walk
+{
+	0% 		{ transform: rotate(-20deg); }
+	15% 	{ transform: rotate(-25deg); }
+	30% 	{ transform: rotate(-35deg) 	translateY(-10%); }
+	60% 	{ transform: rotate(20deg) 		translateY(-30%); }
+	80% 	{ transform: rotate(0deg) 		translateY(-10%); }
+	100% 	{ transform: rotate(-20deg); }
+}
+
+@keyframes front-lower-leg-walk
+{
+	0% 		{ transform: rotate(10deg); }
+	15% 	{ transform: rotate(0deg); }
+	30% 	{ transform: rotate(0deg); }
+	60% 	{ transform: rotate(20deg); }
+	80% 	{ transform: rotate(20deg); }
+	100% 	{ transform: rotate(10deg); }
+}
+
+@keyframes front-foot-walk
+{
+	0% 		{ transform: rotate(15deg); }
+	15% 	{ transform: rotate(10deg); }
+	30% 	{ transform: rotate(-40deg); }
+	60% 	{ transform: rotate(-80deg); }
+	80% 	{ transform: rotate(-10deg); }
+	100% 	{ transform: rotate(15deg); }
+}
+
+@keyframes front-paw-walk
+{
+	0% 		{ transform: rotate(5deg); }
+	15% 	{ transform: rotate(-10deg); }
+	30% 	{ transform: rotate(-90deg); }
+	60% 	{ transform: rotate(-50deg); }
+	80% 	{ transform: rotate(-20deg); }
+	100% 	{ transform: rotate(5deg); }
+}
+
+@keyframes back-upper-leg-walk
+{
+	0% 		{ transform: rotate(-50deg) 	translateY(20%); }
+	20% 	{ transform: rotate(-55deg) 	translateY(10%); }
+	40% 	{ transform: rotate(0deg) 		translateY(5%); }
+	55% 	{ transform: rotate(10deg) 		translateY(0%); }
+	80% 	{ transform: rotate(-20deg) 	translateY(0%); }
+	100% 	{ transform: rotate(-50deg) 	translateY(20%); }
+}
+
+@keyframes back-lower-leg-walk
+{
+	0% 		{ transform: rotate(-10deg) 	translateY(20%); }
+	20% 	{ transform: rotate(-30deg) 	translateY(-30%); }
+	40% 	{ transform: rotate(-20deg) 	translateY(-30%); }
+	55% 	{ transform: rotate(0deg) 		translateY(-0%); }
+	80% 	{ transform: rotate(0deg) 		translateY(-0%); }
+	100% 	{ transform: rotate(-10deg) 	translateY(20%); } // p
+}
+
+@keyframes back-foot-walk
+{
+	0% 		{ transform: rotate(90deg); }
+	20% 	{ transform: rotate(120deg); }
+	40% 	{ transform: rotate(90deg); }
+	55% 	{ transform: rotate(50deg); }
+	85% 	{ transform: rotate(70deg); }
+	100% 	{ transform: rotate(90deg); }
+}
+
+@keyframes back-paw-walk
+{
+	0% 		{ transform: rotate(0deg); }
+	40% 	{ transform: rotate(10deg); }
+	55% 	{ transform: rotate(30deg); }
+	92% 	{ transform: rotate(65deg); }
+	100% 	{ transform: rotate(0deg); }
+}
+
+@keyframes fence
+{
+	0% 		{ transform: translatex(-50%); }
+	100% 	{ transform: translatex(0); }
+}
+
+@keyframes post
+{
+	0% 		{ transform: translatex(-10%); }
+	10% 	{ transform: translatex(110%); }
+	100% 	{ transform: translatex(110%); }
+}
+
+.city
+{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 80vh;
+	height: 80vh;
+	display: block;
+	transform: translatex(-50%) translatey(-50%);
+	background-color: var(--color-moon);
+	border-radius: 50%;
+	overflow: hidden;
+	background: radial-gradient(ellipse at 50% 30%, #C6CEE3, #01349C);
+	
+	.fence
+	{
+		width: 200%;
+		height: 33.5%;
+		position: absolute;
+		bottom: -1%;
+		left: 0;
+		background-color: #04348D;
+		background: repeating-linear-gradient(
+		  to right,
+		  #000E30,
+		  #000E30 5%,
+		  #001535 5%,
+		  #001535 10%
+		);
+		
+		animation: fence calc(var(--speed-walk) * 2) infinite linear;
+	}
+	
+	.moon
+	{
+		position: absolute;
+		width: 30%;
+		height: 30%;
+		border-radius: 50%;
+		top: 30%;
+		left: 50%;
+		transform: translatex(-50%) translatey(-50%);
+		background-color: var(--color-moon);
+	}
+}
