@@ -3070,9 +3070,46 @@ background-color: var(--color-4);
 
 
 
-
-
-
+.idder{
+    display: flex;
+    justify-content: space-between;
+    padding:0px 100px;
+    margin-bottom: 60px;
+}
+.idder iframe{
+    margin-right:200px;
+    width:40%
+}
+.idder p{
+    width: 40%;
+    font-size: 20px;
+    margin-top: 80px;
+   
+}
+.Tanmay{
+    display: flex;
+    justify-content: space-between;
+   
+}
+.Tanmay img{
+    height:500px;
+    width:400px;
+    margin-left: 200px;
+}
+.Tanmay p{
+    width: 40%;
+    font-size: 20px;
+    margin-right: 300px;
+    margin-top: 100px;
+    
+}
+#AC h3{
+    margin-left: 150px;
+}
+#AC span{
+    color:#E250E5;
+    font-weight:900;
+}
 
 
 
